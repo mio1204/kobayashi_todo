@@ -52,6 +52,15 @@
 
 <!-- 入力＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋＋ -->
 @section('form')
+@if(count($errors) > 0)
+<ul>
+  @foreach($errors -> all() as $error)
+  <li>
+    {{$error}}
+  </li>
+  @endforeach
+</ul>
+@endif
 <form action="/todo/create" method="POST">
   <table>
     @csrf
@@ -82,9 +91,9 @@
     <td>
       {{$item->created_at}}
     </td>
-    @if (count($errors) > 0)
+    <!-- @if (count($errors) > 0)
     <p>20文字以内で入力してください</p>
-    @endif
+    @endif -->
     <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="POST">
       <td>
         <input type="text" name="content" value="{{$item->content}}" class="txtwin__list">

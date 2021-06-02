@@ -32,10 +32,10 @@
       border-radius: 15px;
     }
 
-    .form {
+    /* .form {
       display: flex;
       justify-content: center;
-    }
+    } */
 
     h2 {
       margin: 0 20px;
