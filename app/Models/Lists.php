@@ -9,11 +9,10 @@ class Lists extends Model
 {
     protected $guarded = array('id');
     public static $rules = array(
-        'content' => 'required',
+        'content' => 'required | max:20',
     );
     public function getData()
     {
-        // return ('(' . $this->content . ')');
         return $this->id . (' . $this->content . ');
     }
     protected $table = 'list';
